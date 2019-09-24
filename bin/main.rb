@@ -42,7 +42,7 @@ loop do
   system 'clear'
   puts game.board.display
 
-  puts game.state == :winner ? "#{game.current_player.name} wins!" : "It's a draw!"
+  puts game.state == :win ? "#{game.current_player.name} wins!" : "It's a draw!"
 
   print 'Would you like to play again? (y/n): '
   break unless gets.chomp.downcase.start_with?('y')

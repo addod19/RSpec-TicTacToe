@@ -38,11 +38,11 @@ class Board
       ].flatten(1)
     end
   
-    def winner?
+    def win?
       winning_lines.any? { |line| line.all?('X') || line.all?('O') }
     end
   
-    def draw?
-      !winner? && @grid.values.none?(MARKER)
+    def tie?
+      !win? && @grid.values.none?(MARKER)
     end
   end

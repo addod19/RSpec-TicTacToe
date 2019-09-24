@@ -21,8 +21,8 @@ class Game
     end
   
     def state
-      return :winner if @board.winner?
-      return :draw if @board.draw?
+      return :win if @board.win?
+      return :tie if @board.tie?
   
       :active
     end
