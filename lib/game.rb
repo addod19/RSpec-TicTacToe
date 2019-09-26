@@ -9,7 +9,7 @@ class Game
       @board = Board.new
       @player1 = Player.new('X')
       @player2 = Player.new('O')
-      @current_player = [@player1, @player2].sample(1).first
+      @current_player = [@player1, @player2].shuffle
     end
   
     def turn(selection)
@@ -26,4 +26,4 @@ class Game
   
       :active
     end
-  end
+end
