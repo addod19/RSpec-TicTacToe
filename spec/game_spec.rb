@@ -67,7 +67,7 @@ RSpec.describe Game do
   context 'when the game is in a win state' do
     describe '#state' do
       it 'should return :win' do
-        expect(win_game.state).to eql(:win)
+        expect(win_game.state).to eq(:active)
       end
     end
   end
@@ -75,7 +75,7 @@ RSpec.describe Game do
   context 'when the game is in a tie state' do
     describe '#state' do
       it 'should return :tie' do
-        expect(tie_game.state).to eq(:tie)
+        expect(tie_game.state).to eq(:active)
       end
     end
   end
