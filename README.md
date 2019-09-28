@@ -30,7 +30,7 @@ In order to run the game, you'll need to have ruby installed locally. Check [HER
 
 You will then have to Clone or download this repo. You can use `git clone https://github.com/addod19/RSpec-TicTacToe.git` on the terminal if you have git installed or just download it from github.
 
-Next, navigate the directory `cd tic-tac-toe`. The directory has the following structure:
+Next, navigate the directory `cd RSpec-TicTacToe`. The directory has the following structure:
 * An assets folder that holders the images used in the README file.
 * A spec folder that holds all the specifications for the project, it contains the `player_spec`, `game_spec`, `board_spec` and `spec_helper` files.
 * A bin folder that holds the `main.rb` file.
