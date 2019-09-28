@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Game class
 class Game
+
     attr_accessor :player1, :player2
     attr_reader :current_player, :board
   
@@ -27,3 +27,4 @@ class Game
       :active
     end
 end
+

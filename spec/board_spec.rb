@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require_relative '../lib/player'
 require_relative '../lib/board'
 require_relative '../lib/game'
+
 
 RSpec.describe Board do
 
@@ -56,5 +59,4 @@ RSpec.describe Board do
       end
     end
 end
-
 
