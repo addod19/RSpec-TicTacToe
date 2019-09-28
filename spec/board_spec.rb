@@ -47,6 +47,14 @@ RSpec.describe Board do
         end 
       end
     end
+    context "check place selection" do
+      describe "#valid_selection" do
+        it "should return true when select a valid position" do
+          board = Board.new
+          expect(board.valid_selection?(8)).to eq true
+        end
+      end
+    end
 end
 
 
