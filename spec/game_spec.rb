@@ -4,22 +4,25 @@ require_relative '../lib/game'
 
 describe Game do
 
-  board_empty = Board.new(
-      1 => ' ', 2 => ' ', 3 => ' ',
-      4 => ' ', 5 => ' ', 6 => ' ',
-      7 => ' ', 8 => ' ', 9 => ' '
+  board_empty = Board.new({
+      0 => '@ ', 1 => '@ ', 2 => '@ ',
+      3 => '@ ', 4 => '@ ', 5 => '@ ',
+      6 => '@ ', 7 => '@ ', 8 => '@ '
+    }
   )
 
-  win = Board.new(
+  win = Board.new({
       1 => '', 2 => '', 3 => 'O',
       4 => '', 5 => '', 6 => 'O',
       7 => '', 8 => '', 9 => 'O'
+    }
   )
 
-  tie = Board.new(
+  tie = Board.new({
     1 => 'X', 2 => 'X', 3 => 'O',
     4 => 'O', 5 => 'X', 6 => 'X',
     7 => 'X', 8 => '0', 9 => 'O'
+  }
   )
 
   let(:game) { Game.new }
@@ -29,8 +32,8 @@ describe Game do
   context 'when a new game is created' do
     describe '#initialize' do
       it 'should create a new empty board' do
-        expect(game.board).to be_a Board
-        expect(game.board.board).to eql(board_empty.board)
+        expect(win_game.board).to be_a Board
+        expect(game.board).to be_an_instance_of Board
       end
     end
 
@@ -53,7 +56,7 @@ describe Game do
     describe '#turn' do
       it 'should place a marker at the selected position' do
         game.turn(8)
-        expect(game.board.board[8]).to(satisfy) { |x| %w[X O].include?(x) }
+        expect(game.board.grid[8]).to(satisfy) { |x| %w[X O].include?(x) }
       end
     end
 

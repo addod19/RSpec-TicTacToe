@@ -5,11 +5,11 @@ class Game
     attr_accessor :player1, :player2
     attr_reader :current_player, :board
   
-    def initialize
-      @board = Board.new
+    def initialize(board = nil)
+      @board = board ? board : Board.new
       @player1 = Player.new('X')
       @player2 = Player.new('O')
-      @current_player = [@player1, @player2].shuffle
+      @current_player = [@player1, @player2].sample
     end
   
     def turn(selection)

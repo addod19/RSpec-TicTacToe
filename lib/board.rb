@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Board
+    attr_reader :grid
     MARKER = '@ '
   
-    def initialize
-      @grid = (0..8).each_with_object({}) { |n, grid| grid[n] = MARKER }
+    def initialize(grid= nil)
+      @grid = grid ? grid : (0..8).each_with_object({}) { |n, grid| grid[n] = MARKER}
     end
   
     def display
