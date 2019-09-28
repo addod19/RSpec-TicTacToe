@@ -55,7 +55,7 @@ describe Game do
 
     describe '#turn' do
       it 'should place a marker at the selected position' do
-        game.turn(8)
+        game.turn(9)
         expect(game.board.grid[8]).to(satisfy) { |x| %w[X O].include?(x) }
       end
     end
