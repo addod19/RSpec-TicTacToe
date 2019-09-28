@@ -28,7 +28,7 @@ Next, you will need to run the command `rspec spec/name_of_file_to_test`. You wi
 
 In order to run the game, you'll need to have ruby installed locally. Check [HERE](https://www.ruby-lang.org/en/documentation/installation/) to learn how to install ruby. 
 
-You will then have to Clone or download this repo. You can use `git clone https://github.com/Forison/tic-tac-toe.git` on the terminal if you have git installed or just download it from github.
+You will then have to Clone or download this repo. You can use `git clone https://github.com/addod19/RSpec-TicTacToe.git` on the terminal if you have git installed or just download it from github.
 
 Next, navigate the directory `cd tic-tac-toe`. The directory has the following structure:
 * An assets folder that holders the images used in the README file.
