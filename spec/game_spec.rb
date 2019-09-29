@@ -63,8 +63,8 @@ RSpec.describe Game do
         expect(game.board.grid[8]).to(satisfy) { |x| %w[X O].include?(x) }
       end
       it 'should not place a marker at the selected position' do
-        game.turn(9)
-        expect(game.board.grid[8]).to(satisfy) { |o| o.to_i > 9 }
+        game.turn(12)
+        expect(game.board.grid[11]).to(satisfy) { |o| o.to_i > 9 }
       end
       
     end
