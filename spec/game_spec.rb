@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 require_relative '../lib/player'
 require_relative '../lib/board'
@@ -7,26 +6,23 @@ require_relative '../lib/game'
 
 RSpec.describe Game do
 
-  board_empty = Board.new({
-      0 => '@ ', 1 => '@ ', 2 => '@ ',
-      3 => '@ ', 4 => '@ ', 5 => '@ ',
-      6 => '@ ', 7 => '@ ', 8 => '@ '
-    }
-  )
+  let!(:board_empty) {Board.new({
+    0 => '@ ', 1 => '@ ', 2 => '@ ',
+    3 => '@ ', 4 => '@ ', 5 => '@ ',
+    6 => '@ ', 7 => '@ ', 8 => '@ '
+  })}  
 
-  win = Board.new({
-      1 => '', 2 => '', 3 => 'O',
-      4 => '', 5 => '', 6 => 'O',
-      7 => '', 8 => '', 9 => 'O'
-    }
+  let!(:win) {Board.new({
+    1 => '', 2 => '', 3 => 'O',
+    4 => '', 5 => '', 6 => 'O',
+    7 => '', 8 => '', 9 => 'O'
+  })}
 
-
-  tie = Board.new({
+  let(:tie) {Board.new({
     1 => 'X', 2 => 'X', 3 => 'O',
     4 => 'O', 5 => 'X', 6 => 'X',
     7 => 'X', 8 => '0', 9 => 'O'
-  }
-  )
+  })}
 
   let!(:game) { Game.new }
   let!(:win_game) { Game.new(win) }
@@ -46,6 +42,9 @@ RSpec.describe Game do
       it 'should return :active' do
         expect(game.state).to eql(:active)
       end
+      it 'should not return :active' do
+        expect(tie_game.state).to eql(:tie)
+      end
     end
   end
 
@@ -60,16 +59,18 @@ RSpec.describe Game do
 
     describe '#turn' do
       it 'should place a marker at the selected position' do
-
         game.turn(9)
-
         expect(game.board.grid[8]).to(satisfy) { |x| %w[X O].include?(x) }
       end
+      
     end
 
     describe '#state' do
       it 'should return :active' do
         expect(game.state).to eql(:active)
+      end
+      it 'should not return :active' do
+        expect(win_game.state).to eql(:win)
       end
     end
   end
@@ -77,7 +78,10 @@ RSpec.describe Game do
   context 'when the game is in a win state' do
     describe '#state' do
       it 'should return :win' do
-        expect(win_game.state).to eq(:active)
+        expect(win_game.state).to eq(:win)
+      end
+      it 'should not return :win' do
+        expect(game.state).to eq(:active)
       end
     end
   end
@@ -85,7 +89,10 @@ RSpec.describe Game do
   context 'when the game is in a tie state' do
     describe '#state' do
       it 'should return :tie' do
-        expect(tie_game.state).to eq(:active)
+        expect(tie_game.state).to eq(:tie)
+      end
+      it 'should not return :tie' do
+        expect(game.state).to eq(:active)
       end
     end
   end
