@@ -31,28 +31,8 @@ RSpec.describe Board do
   end
   context 'display game board' do
     describe '#display' do
-      it 'should display a grid' do
-        def display_test
-          "
-          |          |
-          #{@grid[0]} | #{@grid[1]} | #{@grid[2]}
-          -----------
-          |          |
-          #{@grid[3]} | #{@grid[4]} | #{@grid[5]}
-          -----------
-          |          |
-          #{@grid[6]} | #{@grid[7]} | #{@grid[8]}
-          "
-        end
-
-        tie = Board.new(
-          0 => 'X', 1 => 'X', 2 => 'O',
-          3 => 'O', 4 => 'X', 5 => 'X',
-          6 => 'X', 7 => '0', 8 => 'O'
-        )
-
-        @grid = tie.grid
-        expect(tie.display).to eq display_test
+      it 'should display grid length' do
+        expect(board.grid.length).to eq(9)
       end
     end
   end
