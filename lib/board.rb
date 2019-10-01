@@ -5,7 +5,7 @@ class Board
   MARKER = '@ '
 
   def initialize(grid = nil)
-    @grid = grid || (0..8).each_with_object({}) { |n, grid| grid[n] = MARKER }
+    @grid = grid || (0..8).each_with_object({}) { |n, g| g[n] = MARKER }
   end
 
   def display
