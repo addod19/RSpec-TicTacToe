@@ -48,4 +48,12 @@ RSpec.describe Board do
       end
     end
   end
+  context 'check for place marker' do
+    describe '#place_marker' do
+      it 'should place marker at the right position' do
+        board = Board.new
+        expect(board.place_marker(5, 'X')).to eql(board.grid[4])
+      end
+    end
+  end
 end
