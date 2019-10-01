@@ -1,27 +1,33 @@
+# frozen_string_literal: true
+
 require_relative '../lib/player'
 require_relative '../lib/board'
 require_relative '../lib/game'
 
-
 RSpec.describe Game do
+  let!(:board_empty) do
+    Board.new(
+      0 => '@', 1 => '@', 2 => '@',
+      3 => '@', 4 => '@', 5 => '@',
+      6 => '@', 7 => '@', 8 => '@'
+    )
+  end
 
-  let!(:board_empty) {Board.new({
-    0 => '@ ', 1 => '@ ', 2 => '@ ',
-    3 => '@ ', 4 => '@ ', 5 => '@ ',
-    6 => '@ ', 7 => '@ ', 8 => '@ '
-  })}  
+  let!(:win) do
+    Board.new(
+      1 => '', 2 => '', 3 => 'O',
+      4 => '', 5 => '', 6 => 'O',
+      7 => '', 8 => '', 9 => 'O'
+    )
+  end
 
-  let!(:win) {Board.new({
-    1 => '', 2 => '', 3 => 'O',
-    4 => '', 5 => '', 6 => 'O',
-    7 => '', 8 => '', 9 => 'O'
-  })}
-
-  let(:tie) {Board.new({
-    1 => 'X', 2 => 'X', 3 => 'O',
-    4 => 'O', 5 => 'X', 6 => 'X',
-    7 => 'X', 8 => '0', 9 => 'O'
-  })}
+  let(:tie) do
+    Board.new(
+      1 => 'X', 2 => 'X', 3 => 'O',
+      4 => 'O', 5 => 'X', 6 => 'X',
+      7 => 'X', 8 => '0', 9 => 'O'
+    )
+  end
 
   let!(:game) { Game.new }
   let!(:win_game) { Game.new(win) }
@@ -29,11 +35,9 @@ RSpec.describe Game do
 
   context 'when a new game is created' do
     describe '#initialize' do
-
       it 'should create a new empty board' do
         expect(win_game.board).to be_a Board
         expect(game.board).to be_an_instance_of Board
-
       end
     end
 
@@ -94,5 +98,4 @@ RSpec.describe Game do
       end
     end
   end
-  
 end
