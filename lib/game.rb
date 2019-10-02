@@ -26,4 +26,3 @@ class Game
     :active
   end
 end
-
