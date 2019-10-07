@@ -56,4 +56,12 @@ RSpec.describe Board do
       end
     end
   end
+  context 'check for winning lines' do
+    describe '#winning_lines' do
+      it 'should win at the right values' do
+      board = Board.new
+      expect(board.winning_lines)
+      end
+    end
+  end
 end
