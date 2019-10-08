@@ -59,9 +59,9 @@ RSpec.describe Board do
   context 'check for winning lines' do
     describe '#winning_lines' do
       it 'should win at the right values' do
-        board = Board.new( 1 => 'X', 2 => 'X', 3 => 'O',
-        4 => 'O', 5 => 'X', 6 => 'X',
-        7 => 'X', 8 => '0', 9 => 'X')
+        board = Board.new(1 => 'X', 2 => 'X', 3 => 'O',
+                          4 => 'O', 5 => 'X', 6 => 'X',
+                          7 => 'X', 8 => '0', 9 => 'X')
         expect(board.win?).to eql true
         dbl = double(board)
         allow(dbl).to receive(:winning_lines).and_return('win')
