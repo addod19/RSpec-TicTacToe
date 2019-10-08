@@ -63,6 +63,32 @@ RSpec.describe Board do
         4 => 'O', 5 => 'X', 6 => 'X',
         7 => 'X', 8 => '0', 9 => 'X')
         expect(board.win?).to eql true
+        dbl = double(board)
+        allow(dbl).to receive(:winning_lines).and_return('win')
+      end
+    end
+  end
+  context 'check for win' do
+    describe '#win' do
+      it 'should return win if game won' do
+        dbl = double(board)
+        allow(dbl).to receive(:win).and_return('Player won')
+      end
+    end
+  end
+  context 'check for tie' do
+    describe '#tie' do
+      it 'should return tie if no win' do
+        dbl = double(board)
+        allow(dbl).to receive(:tie).and_return('Game is tie')
+      end
+    end
+  end
+  context 'check for display' do
+    describe '#display' do
+      it 'check if two strings are equal' do
+        dbl = double(board)
+        allow(dbl).to receive(:display).and_return(@grid)
       end
     end
   end
