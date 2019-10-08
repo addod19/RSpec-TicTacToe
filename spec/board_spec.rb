@@ -64,4 +64,20 @@ RSpec.describe Board do
       end
     end
   end
+  context 'check for win' do
+    describe '#win' do
+      it 'should return win if game won' do
+        dbl = double(board)
+        allow(dbl).to receive(:win).and_return('Player won')
+      end
+    end
+  end
+  context 'check for tie' do
+    describe '#tie' do
+      it 'should return tie if no win' do
+        dbl = double(board)
+        allow(dbl).to receive(:tie).and_return('Game is tie')
+      end
+    end
+  end
 end
