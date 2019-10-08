@@ -80,4 +80,12 @@ RSpec.describe Board do
       end
     end
   end
+  context 'check for display' do
+    describe '#display' do
+      it 'check if two strings are equal' do
+        dbl = double(board)
+        allow(dbl).to receive(:display).and_return(@grid)
+      end
+    end
+  end
 end
